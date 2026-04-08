@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KétoProgress — Méthode Psycho-Métabolique pour Professionnels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --vert-profond: #0b3d2e;
+    --vert-moyen: #1a6b52;
+    --vert-clair: #e8f4f0;
+    --or: #b5881e;
+    --or-clair: #f5edd8;
+    --creme: #f9f6f1;
+    --blanc: #ffffff;
+    --texte: #1a1a1a;
+    --texte-doux: #4a4a4a;
+    --texte-leger: #7a7a7a;
+    --bordure: #d8d2c8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--texte);
+    background: var(--blanc);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(249,246,241,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--bordure);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--vert-profond);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span {
+    color: var(--or);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--texte-doux);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--vert-moyen); }
+
+  .nav-cta {
+    background: var(--vert-profond) !important;
+    color: var(--blanc) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--vert-moyen) !important; color: var(--blanc) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--vert-profond);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 2.5rem 6rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 30%, rgba(181,136,30,0.08) 100%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 4vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.18;
+    color: var(--blanc);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--or);
+    color: var(--vert-profond);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .btn-primary:hover {
+    background: #c99a22;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    color: rgba(255,255,255,0.7);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: var(--blanc);
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .hero-card-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-card-text {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .hero-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--or);
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS COMMUNES */
+  section { padding: 6rem 2.5rem; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--vert-profond);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--vert-moyen);
+  }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--texte-doux);
+    max-width: 620px;
+    line-height: 1.8;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--or);
+    margin: 2rem 0;
+  }
+
+  /* RUBAN CITATION */
+  .citation-band {
+    background: var(--vert-profond);
+    padding: 4rem 2.5rem;
+    text-align: center;
+  }
+
+  .citation-band blockquote {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+  }
+
+  .citation-band cite {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--or);
+    font-style: normal;
+  }
+
+  /* POUR QUI */
+  .pour-qui { background: var(--creme); }
+
+  .profils-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .profil-card {
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    border-radius: 4px;
+    padding: 2rem;
+    border-top: 3px solid var(--vert-moyen);
+  }
+
+  .profil-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--vert-profond);
+    margin-bottom: 1rem;
+  }
+
+  .profil-card p {
+    font-size: 0.9rem;
+    color: var(--texte-doux);
+    line-height: 1.7;
+  }
+
+  .profil-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    background: var(--vert-clair);
+    color: var(--vert-profond);
+    border-radius: 2px;
+  }
+
+  /* PHASES */
+  .phases { background: var(--blanc); }
+
+  .phases-timeline {
+    margin-top: 4rem;
+    position: relative;
+  }
+
+  .phases-timeline::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--bordure);
+  }
+
+  .phase-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .phase-num {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-align: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase-adt { background: var(--or-clair); color: #7a5a10; border: 1px solid #d4a830; }
+  .phase-cnt { background: var(--vert-clair); color: var(--vert-profond); border: 1px solid #5ea88a; }
+  .phase-keto { background: #e8eaf4; color: #3a3c6e; border: 1px solid #8a8ec4; }
+  .phase-retour { background: #f4f4e8; color: #4a4a1a; border: 1px solid #9a9a5a; }
+
+  .phase-content {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--bordure);
+  }
+
+  .phase-content:last-child { border-bottom: none; }
+
+  .phase-content h3 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--vert-profond);
+    margin-bottom: 0.25rem;
+  }
+
+  .phase-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .phase-content p {
+    font-size: 0.95rem;
+    color: var(--texte-doux);
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-glucides {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--texte-leger);
+    margin-top: 0.5rem;
+  }
+
+  .glucide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--vert-moyen);
+    flex-shrink: 0;
+  }
+
+  /* OUTILS */
+  .outils { background: var(--creme); }
+
+  .outils-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .outil-card {
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .outil-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--vert-moyen), var(--or));
+  }
+
+  .outil-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--vert-clair);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .outil-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--vert-profond);
+    margin-bottom: 0.75rem;
+  }
+
+  .outil-card p {
+    font-size: 0.9rem;
+    color: var(--texte-doux);
+    line-height: 1.7;
+  }
+
+  .outil-liste {
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .outil-liste li {
+    font-size: 0.85rem;
+    color: var(--texte-doux);
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .outil-liste li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--or);
+    font-size: 0.7rem;
+  }
+
+  /* ETHIQUE */
+  .ethique { background: var(--vert-profond); }
+
+  .ethique .section-title { color: var(--blanc); }
+  .ethique .section-label { color: var(--or); }
+  .ethique .divider { background: rgba(255,255,255,0.2); }
+
+  .ethique-intro {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 620px;
+    line-height: 1.8;
+  }
+
+  .ethique-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+
+  .principe-item {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .principe-item h4 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--or);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .principe-item p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  .triangle-central {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .triangle-central p {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .triangle-ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--or);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  /* OFFRE */
+  .offre { background: var(--blanc); }
+
+  .offre-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .offre-card {
+    border: 1px solid var(--bordure);
+    border-radius: 4px;
+    padding: 2.5rem;
+  }
+
+  .offre-card.featured {
+    background: var(--vert-profond);
+    border-color: var(--vert-profond);
+  }
+
+  .offre-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .offre-card:not(.featured) .offre-tag {
+    background: var(--vert-clair);
+    color: var(--vert-profond);
+  }
+
+  .offre-card.featured .offre-tag {
+    background: var(--or);
+    color: var(--vert-profond);
+  }
+
+  .offre-card h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .offre-card:not(.featured) h3 { color: var(--vert-profond); }
+  .offre-card.featured h3 { color: var(--blanc); }
+
+  .offre-card .sous-titre {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .offre-card:not(.featured) .sous-titre { color: var(--texte-leger); }
+  .offre-card.featured .sous-titre { color: rgba(255,255,255,0.55); }
+
+  .offre-liste {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .offre-liste li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .offre-card:not(.featured) .offre-liste li {
+    color: var(--texte-doux);
+    border-color: var(--bordure);
+  }
+
+  .offre-card.featured .offre-liste li {
+    color: rgba(255,255,255,0.75);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .offre-liste li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+    color: var(--or);
+    line-height: 1.9;
+  }
+
+  .offre-card .btn-primary {
+    display: block;
+    text-align: center;
+  }
+
+  .offre-card:not(.featured) .btn-outlined {
+    display: block;
+    text-align: center;
+    border: 1px solid var(--vert-profond);
+    color: var(--vert-profond);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .offre-card:not(.featured) .btn-outlined:hover {
+    background: var(--vert-profond);
+    color: var(--blanc);
+  }
+
+  .offre-prix {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.25rem;
+  }
+
+  .offre-card:not(.featured) .offre-prix { color: var(--vert-profond); }
+  .offre-card.featured .offre-prix { color: var(--or); }
+
+  .offre-prix-note {
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .offre-card:not(.featured) .offre-prix-note { color: var(--texte-leger); }
+  .offre-card.featured .offre-prix-note { color: rgba(255,255,255,0.45); }
+
+  /* TEMOIGNAGE */
+  .temoignages { background: var(--creme); }
+
+  .temoignages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .temoignage {
+    background: var(--blanc);
+    border: 1px solid var(--bordure);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .temoignage blockquote {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--texte-doux);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .temoignage-auteur {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vert-moyen);
+    font-weight: 500;
+  }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: var(--or-clair);
+    border-top: 1px solid #d4b870;
+    text-align: center;
+    padding: 6rem 2.5rem;
+  }
+
+  .cta-final .section-title {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .cta-final p {
+    font-size: 1rem;
+    color: var(--texte-doux);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary-dark {
+    display: inline-block;
+    background: var(--vert-profond);
+    color: var(--blanc);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .btn-primary-dark:hover {
+    background: var(--vert-moyen);
+    transform: translateY(-1px);
+  }
+
+  .btn-link {
+    display: inline-block;
+    color: var(--vert-profond);
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border: 1px solid var(--vert-profond);
+    border-radius: 2px;
+    transition: all 0.25s;
+    opacity: 0.7;
+  }
+
+  .btn-link:hover { opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    background: var(--vert-profond);
+    padding: 3rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--blanc);
+  }
+
+  .footer-logo span { color: var(--or); }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.85); }
+
+  .footer-credit {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 6rem 1.5rem 4rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-right { display: none; }
+    .ethique-grid { grid-template-columns: 1fr; }
+    .offre-cards { grid-template-columns: 1fr; }
+    .temoignages-grid { grid-template-columns: 1fr; }
+    .phases-timeline::before { left: 30px; }
+    .phase-item { grid-template-columns: 60px 1fr; }
+    .phase-num { width: 60px; height: 60px; font-size: 0.6rem; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .citation-band { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">Kéto<span>Progress</span> <span style="font-size:0.7rem;font-weight:300;color:var(--texte-leger);font-family:var(--sans);">Professionnels</span></a>
+  <ul class="nav-links">
+    <li><a href="#methode">La méthode</a></li>
+    <li><a href="#pour-qui">Pour qui</a></li>
+    <li><a href="#phases">Les phases</a></li>
+    <li><a href="#outils">Outils</a></li>
+    <li><a href="#offre">Offre</a></li>
+    <li><a href="#contact" class="nav-cta">Prendre rendez-vous</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-eyebrow">Méthode Professionnelle · Psycho-Métabolique</p>
+      <h1>Un cadre structuré pour <em>accompagner autrement</em> vos patients</h1>
+      <p class="hero-desc">
+        KétoProgress<sup style="font-size:0.55em;vertical-align:super;letter-spacing:0;">®</sup> est une méthode progressive destinée aux professionnels de l'accompagnement souhaitant intégrer une approche psycho-métabolique dans leur pratique — sans créer de contenu, sans improviser les phases.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
+        <a href="#methode" class="btn-ghost">Découvrir la méthode</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <p class="hero-card-label">Principe fondateur</p>
+        <p class="hero-card-text">« Ce qui se joue dans l'alimentation ne relève pas uniquement de la volonté. Le praticien accompagne. Le patient choisit. La méthode structure. »</p>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <span class="hero-stat-num">4</span>
+          <span class="hero-stat-label">Phases progressives</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">12</span>
+          <span class="hero-stat-label">Mois de protocole</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">3</span>
+          <span class="hero-stat-label">Applications dédiées</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="hero-card-label">Fondatrice</p>
+        <p class="hero-card-text">Patricia Rousset, psychanalyste — Créatrice de la méthode KétoProgress, Montauban</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CITATION -->
+<div class="citation-band">
+  <blockquote>
+    « KétoProgress s'adresse aux professionnels qui ressentent les limites de l'accompagnement uniquement verbal ou nutritionnel, et qui souhaitent s'appuyer sur un cadre psycho-métabolique structuré pour soutenir leurs patients entre les séances. »
+  </blockquote>
+  <cite>Patricia Rousset · Psychanalyste, fondatrice de KétoProgress</cite>
+</div>
+
+<!-- METHODE -->
+<section id="methode">
+  <div class="container">
+    <p class="section-label">La méthode</p>
+    <h2 class="section-title">Une double lecture <em>du comportement alimentaire</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      KétoProgress repose sur un principe simple mais cliniquement solide : le comportement alimentaire dysfonctionnel est à la fois un phénomène métabolique et un phénomène psychique. La méthode agit sur les deux axes simultanément.
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem;align-items:start;">
+      <div>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--vert-profond);margin-bottom:1.2rem;">Axe métabolique</h3>
+        <p style="font-size:0.95rem;color:var(--texte-doux);line-height:1.8;margin-bottom:1rem;">La méthode régule progressivement la glycémie en réduisant les apports glucidiques par paliers. Cette progression évite les phénomènes de manque brutal, stabilise l'énergie, et réduit les pics insuliniques à l'origine des compulsions.</p>
+        <ul class="outil-liste">
+          <li>Régulation insuline / glucagon</li>
+          <li>Transition glucose → lipides → cétones</li>
+          <li>Stabilisation glycémique progressive</li>
+          <li>Diminution de l'inflammation systémique</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--vert-profond);margin-bottom:1.2rem;">Axe psychique</h3>
+        <p style="font-size:0.95rem;color:var(--texte-doux);line-height:1.8;margin-bottom:1rem;">Le cadre alimentaire devient un révélateur du fonctionnement psychique. Les résistances, les compulsions, les craquages ne sont pas des échecs — ce sont des informations cliniques que le praticien peut travailler.</p>
+        <ul class="outil-liste">
+          <li>Identification des mécanismes émotionnels</li>
+          <li>Travail sur les compulsions et automatismes</li>
+          <li>Passage du contrôle à la compréhension</li>
+          <li>Régulation émotionnelle durable</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section id="pour-qui" class="pour-qui">
+  <div class="container">
+    <p class="section-label">Pour qui</p>
+    <h2 class="section-title">Les professionnels <em>concernés</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">KétoProgress s'intègre dans des pratiques très diverses. Le point commun : vous accompagnez des personnes dont le rapport à l'alimentation est complexe, et vous souhaitez un cadre plus structuré.</p>
+
+    <div class="profils-grid">
+      <div class="profil-card">
+        <h3>Praticiens en nutrition</h3>
+        <p>Vous maîtrisez le volet alimentaire, mais vous observez que certains patients savent quoi faire — et ne le font pas. Ce qui bloque n'est pas nutritionnel : c'est psychique. Compulsions, résistances au cadre, relation émotionnelle au sucre, craquages récurrents — ces phénomènes relèvent d'une dynamique que l'approche nutritionnelle seule ne résout pas.</p>
+        <p style="margin-top:0.75rem;font-size:0.88rem;color:var(--vert-moyen);font-weight:400;">KétoProgress intègre cette dimension psychique directement dans le protocole — vous n'avez pas à devenir thérapeute, le cadre fait le travail.</p>
+        <div class="profil-tags" style="margin-top:1rem;">
+          <span class="tag">Diététicien</span>
+          <span class="tag">Nutritionniste</span>
+          <span class="tag">Coach nutrition</span>
+        </div>
+      </div>
+      <div class="profil-card">
+        <h3>Praticiens en psychologie</h3>
+        <p>Vous travaillez les mécanismes émotionnels mais manquez d'un cadre alimentaire structuré pour ancrer le travail psychique dans le corps. La méthode vous offre ce cadre sans vous imposer une posture nutritionniste.</p>
+        <div class="profil-tags">
+          <span class="tag">Psychologue</span>
+          <span class="tag">Psychothérapeute</span>
+          <span class="tag">Psychanalyste</span>
+        </div>
+      </div>
+      <div class="profil-card">
+        <h3>Praticiens du bien-être et du soin</h3>
+        <p>Votre pratique touche à la globalité de la personne. KétoProgress vous permet d'aller plus loin dans l'accompagnement psycho-corporel, avec un cadre éthique et transmissible.</p>
+        <div class="profil-tags">
+          <span class="tag">Naturopathe</span>
+          <span class="tag">Thérapeute</span>
+          <span class="tag">Coach santé</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;padding:2rem;background:var(--blanc);border-radius:4px;border-left:3px solid var(--or);">
+      <p style="font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--texte-doux);line-height:1.7;">
+        <strong style="font-weight:600;color:var(--vert-profond);font-style:normal;">Profils patients particulièrement adaptés :</strong><br>
+        Perte de poids résistante · Instabilité glycémique ou prédiabète · Compulsions et grignotages · Relation conflictuelle au sucre · Fatigue chronique · Prise de poids liée à la ménopause · Pathologies inflammatoires stabilisées
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases" class="phases">
+  <div class="container">
+    <p class="section-label">Progression</p>
+    <h2 class="section-title">Les 4 phases <em>de la méthode</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">La progression est l'élément central de KétoProgress. Chaque phase a une logique métabolique et une logique psychologique propre. Le praticien détermine le rythme en fonction de son patient.</p>
+
+    <div class="phases-timeline">
+
+      <div class="phase-item">
+        <div class="phase-num phase-adt">ADT</div>
+        <div class="phase-content">
+          <span class="phase-subtitle">Alimentation Diététique de Transition</span>
+          <h3>Stabiliser sans restreindre</h3>
+          <p>Première phase d'amorçage. La réduction glucidique est douce et progressive. L'objectif est de poser de nouveaux repères alimentaires sans déclencher de frustration ni de résistance psychique. Les habitudes commencent à se restructurer sans rupture brutale.</p>
+          <p>C'est la phase où le praticien observe les premières résistances, les automatismes, et la relation que le patient entretient avec le cadre.</p>
+          <span class="phase-glucides"><span class="glucide-dot"></span> 100 à 150 g de glucides / jour</span>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num phase-cnt">CNT</div>
+        <div class="phase-content">
+          <span class="phase-subtitle">Consolidation Nutritionnelle Thérapeutique</span>
+          <h3>Ancrer les changements</h3>
+          <p>Phase centrale de la méthode. Les habitudes s'installent, la glycémie se régule, et le travail psychique peut s'approfondir. Le patient commence à comprendre ses mécanismes plutôt qu'à les combattre.</p>
+          <p>Le praticien travaille sur la continuité — une des difficultés majeures dans tous les suivis au long cours.</p>
+          <span class="phase-glucides"><span class="glucide-dot"></span> 50 à 100 g de glucides / jour</span>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num phase-keto">KETO</div>
+        <div class="phase-content">
+          <span class="phase-subtitle">Cétogène Thérapeutique Optimisé</span>
+          <h3>Approfondir le fonctionnement métabolique</h3>
+          <p>Phase stricte à visée métabolique, encadrée et structurée. Le corps entre en cétose nutritionnelle. Cette phase n'est pas systématique — le praticien juge de sa pertinence clinique selon le profil du patient.</p>
+          <p>Le travail psychique sur la tolérance à la contrainte et la relation à la privation est au premier plan.</p>
+          <span class="phase-glucides"><span class="glucide-dot"></span> 20 à 40 g de glucides / jour</span>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-num phase-retour">Retour CNT</div>
+        <div class="phase-content">
+          <span class="phase-subtitle">Réintégration — Équilibre Durable</span>
+          <h3>Adapter à la vraie vie</h3>
+          <p>Sortie progressive de la phase cétogène. L'objectif est la flexibilité et la durabilité — permettre au patient de maintenir les acquis sans rigidité, et de naviguer les situations sociales, festives et émotionnelles sans rechute.</p>
+          <p>C'est la phase de transfert de compétences : le patient devient progressivement autonome.</p>
+          <span class="phase-glucides"><span class="glucide-dot"></span> Retour à 50–100 g de glucides / jour</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUTILS -->
+<section id="outils" class="outils">
+  <div class="container">
+    <p class="section-label">Le dispositif</p>
+    <h2 class="section-title">Des outils prêts à l'emploi <em>pour chaque phase</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Le praticien licencié accède à un dispositif complet d'outils numériques et pédagogiques. Aucun contenu à créer, aucune logistique à gérer.</p>
+
+    <div class="outils-grid">
+      <div class="outil-card">
+        <div class="outil-icon" style="background:#e8f4f0;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="3" width="18" height="20" rx="2.5" stroke="#0b3d2e" stroke-width="1.4"/>
+            <path d="M8 8h10M8 12h10M8 16h6" stroke="#1a6b52" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="19" cy="19" r="4.5" fill="#e8f4f0" stroke="#0b3d2e" stroke-width="1.2"/>
+            <path d="M17.5 19h3M19 17.5v3" stroke="#0b3d2e" stroke-width="1.1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Applications de recettes</h3>
+        <p>Trois applications dédiées (ADT, CNT, KETO), accessibles directement par vos patients. Chaque application comprend :</p>
+        <ul class="outil-liste">
+          <li>4 menus par jour + encas et collations</li>
+          <li>28 recettes hebdomadaires calibrées</li>
+          <li>Liste de courses automatique</li>
+          <li>Compteur glucidique journalier</li>
+          <li>Calendrier hebdomadaire</li>
+        </ul>
+      </div>
+      <div class="outil-card">
+        <div class="outil-icon" style="background:#f5edd8;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 21V7a2 2 0 012-2h12a2 2 0 012 2v14l-4-2-4 2-4-2-4 2z" stroke="#7a5a10" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M9 10h8M9 13.5h5" stroke="#b5881e" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="17.5" cy="13.5" r="1.5" fill="#b5881e" opacity="0.5"/>
+            <circle cx="17.5" cy="13.5" r="0.6" fill="#7a5a10"/>
+          </svg>
+        </div>
+        <h3>Le Carnet de Paul</h3>
+        <p>Journal psycho-nutritionnel introspectif hebdomadaire. Permet au patient de noter ses observations entre les séances — compulsions, émotions, situations déclenchantes.</p>
+        <ul class="outil-liste">
+          <li>Structure narrative guidée</li>
+          <li>Questions d'exploration psychique</li>
+          <li>Outil de liaison entre les séances</li>
+        </ul>
+      </div>
+      <div class="outil-card">
+        <div class="outil-icon" style="background:#eef4fb;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="13" cy="13" r="5" stroke="#185FA5" stroke-width="1.4"/>
+            <path d="M13 8V5M13 21v-3M8 13H5M21 13h-3" stroke="#185FA5" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+            <path d="M10 13c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3" stroke="#0C447C" stroke-width="1.3" stroke-linecap="round"/>
+            <path d="M5 9c.6-1.2 1.5-2.2 2.5-3" stroke="#185FA5" stroke-width="1.1" stroke-linecap="round" opacity="0.35"/>
+            <path d="M21 9c-.6-1.2-1.5-2.2-2.5-3" stroke="#185FA5" stroke-width="1.1" stroke-linecap="round" opacity="0.35"/>
+          </svg>
+        </div>
+        <h3>Les Audios Louis</h3>
+        <p>Séquences audio hebdomadaires de guidage corporel. Travail sur la conscience corporelle, la respiration, la relation au corps et à la faim.</p>
+        <ul class="outil-liste">
+          <li>Une séquence par semaine</li>
+          <li>Durée adaptée (15–25 min)</li>
+          <li>Approche pleine conscience non dogmatique</li>
+        </ul>
+      </div>
+      <div class="outil-card">
+        <div class="outil-icon" style="background:#e8f4f0;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="6" width="20" height="14" rx="2.5" stroke="#0b3d2e" stroke-width="1.4"/>
+            <path d="M11 10l5 3-5 3V10z" fill="#1a6b52"/>
+            <path d="M3 10h2M21 10h2M3 16h2M21 16h2" stroke="#0b3d2e" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3>Les Vidéos Léna</h3>
+        <p>Contenus pédagogiques hebdomadaires pour le patient. Explications sur le métabolisme, le sucre, la glycémie, les compulsions — en langage accessible et non culpabilisant.</p>
+        <ul class="outil-liste">
+          <li>Une vidéo thématique par semaine</li>
+          <li>Approche éducative non prescriptive</li>
+          <li>Renforce la compréhension entre séances</li>
+        </ul>
+      </div>
+      <div class="outil-card">
+        <div class="outil-icon" style="background:#f5edd8;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="5" width="14" height="17" rx="2" stroke="#7a5a10" stroke-width="1.4"/>
+            <rect x="5" y="7" width="14" height="17" rx="2" fill="#f9f6f1" stroke="#b5881e" stroke-width="1.4"/>
+            <path d="M9 12h6M9 15.5h4" stroke="#b5881e" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M9 8.5h6" stroke="#7a5a10" stroke-width="1.1" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3>E-Book de formation</h3>
+        <p>Document de référence de 64 pages structuré en modules pédagogiques. Conforme aux exigences Qualiopi. Objectifs pédagogiques par module, exercices pratiques, études de cas.</p>
+        <ul class="outil-liste">
+          <li>4 modules thématiques</li>
+          <li>16 exercices pratiques avec corrigés</li>
+          <li>Guide de supervision intégré</li>
+        </ul>
+      </div>
+      <div class="outil-card">
+        <div class="outil-icon" style="background:#e8f4f0;">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="20" height="18" rx="2.5" stroke="#0b3d2e" stroke-width="1.4"/>
+            <path d="M3 10h20" stroke="#0b3d2e" stroke-width="1.2"/>
+            <path d="M8 3v4M18 3v4" stroke="#0b3d2e" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="9" cy="16" r="1.2" fill="#1a6b52"/>
+            <circle cx="13" cy="16" r="1.2" fill="#1a6b52"/>
+            <circle cx="17" cy="16" r="1.2" fill="#b5881e"/>
+            <path d="M9 16h4" stroke="#1a6b52" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Cadre de suivi structuré</h3>
+        <p>Protocole de rendez-vous clair, adapté à une pratique en cabinet ou en téléconsultation. Le praticien garde sa liberté clinique dans un cadre défini.</p>
+        <ul class="outil-liste">
+          <li>2 rendez-vous personnalisés / mois</li>
+          <li>Fiches de suivi par phase</li>
+          <li>Grilles d'observation des résistances</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETHIQUE -->
+<section id="ethique" class="ethique">
+  <div class="container">
+    <p class="section-label">Cadre éthique</p>
+    <h2 class="section-title">Ce que la méthode <em>n'est pas</em></h2>
+    <div class="divider"></div>
+    <p class="ethique-intro">La clarté éthique est centrale dans la conception de KétoProgress. Elle conditionne la confiance du praticien et la sécurité du patient.</p>
+
+    <div class="ethique-grid">
+      <div>
+        <div class="principe-item">
+          <h4>Pas un régime</h4>
+          <p>KétoProgress ne promet pas de résultats. Il structure un accompagnement. Le changement est une conséquence du travail, pas une promesse de départ.</p>
+        </div>
+        <div class="principe-item">
+          <h4>Pas un outil médical</h4>
+          <p>La méthode ne se substitue pas à un suivi médical. Pour les pathologies (diabète, maladies cardiovasculaires), le travail se fait en collaboration avec le médecin traitant.</p>
+        </div>
+        <div class="principe-item">
+          <h4>Pas une approche prescriptive</h4>
+          <p>Le praticien garde son autonomie clinique. KétoProgress est un cadre, pas un protocole rigide à appliquer mécaniquement.</p>
+        </div>
+        <div class="principe-item">
+          <h4>Pas une dépendance à une figure centrale</h4>
+          <p>La méthode est transmissible, reproductible, et ne repose pas sur une dynamique d'influence ou de conviction. L'objectif est l'autonomie du patient.</p>
+        </div>
+      </div>
+      <div>
+        <div class="triangle-central">
+          <p>« Le praticien accompagne.<br>Le patient choisit.<br>La méthode structure. »</p>
+          <div class="triangle-ligne">
+            <span>Liberté clinique</span>
+            <span>·</span>
+            <span>Cadre reproductible</span>
+            <span>·</span>
+            <span>Autonomie du patient</span>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:4px;">
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;">
+            KétoProgress a été conçue par une psychanalyste. La rigueur éthique — absence de promesses, respect de la singularité, non-médicalisation abusive — est au cœur de la méthode, pas un ajout marketing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRE -->
+<section id="offre" class="offre">
+  <div class="container">
+    <p class="section-label">L'offre professionnelle</p>
+    <h2 class="section-title">Intégrer KétoProgress <em>dans votre pratique</em></h2>
+    <div class="divider"></div>
+    <p class="section-intro">Deux formules pour s'adapter à votre pratique, votre volume de patients, et votre degré d'intégration souhaité.</p>
+
+    <div class="offre-cards">
+      <div class="offre-card">
+        <span class="offre-tag">Licence Individuelle</span>
+        <h3>Praticien solo</h3>
+        <p class="sous-titre">Pour intégrer la méthode dans une pratique individuelle</p>
+        <p class="offre-prix">Sur devis</p>
+        <p class="offre-prix-note">Tarif adapté à votre contexte — nous en discutons lors du rendez-vous</p>
+        <ul class="offre-liste">
+          <li>Accès complet aux 3 applications de recettes (ADT, CNT, KETO)</li>
+          <li>E-book de formation (64 pages)</li>
+          <li>Contenus hebdomadaires patients (Paul, Louis, Léna)</li>
+          <li>Protocole de suivi structuré</li>
+          <li>Accompagnement à la prise en main</li>
+          <li>Mises à jour incluses</li>
+        </ul>
+        <a href="#contact" class="btn-outlined">Demander un rendez-vous</a>
+      </div>
+
+      <div class="offre-card featured">
+        <span class="offre-tag">Offre Réseau</span>
+        <h3>Cabinet ou réseau de praticiens</h3>
+        <p class="sous-titre">Pour plusieurs praticiens ou structures multi-sites</p>
+        <p class="offre-prix">Sur devis</p>
+        <p class="offre-prix-note">Tarification adaptée au nombre de praticiens et au volume</p>
+        <ul class="offre-liste">
+          <li>Tout ce qui est inclus dans la licence individuelle</li>
+          <li>Accès multi-praticiens sur la même structure</li>
+          <li>Formation collective possible</li>
+          <li>Supervision de groupe (en option)</li>
+          <li>Accompagnement renforcé au déploiement</li>
+          <li>Interlocuteur dédié</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Prendre rendez-vous</a>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.5rem 2rem;background:var(--creme);border-radius:4px;border:1px solid var(--bordure);display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <p style="font-size:0.85rem;color:var(--texte-doux);flex:1;min-width:280px;line-height:1.7;">
+        <strong style="color:var(--vert-profond);">Formation Qualiopi :</strong> KétoProgress est en cours de démarche de certification Qualiopi. Renseignez-vous sur les possibilités de financement par votre OPCO lors du rendez-vous.
+      </p>
+      <a href="#contact" style="white-space:nowrap;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--vert-moyen);text-decoration:none;font-weight:500;">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES (section préparée pour accueillir les retours bêta-testeurs) -->
+<section class="temoignages">
+  <div class="container">
+    <p class="section-label">Retours praticiens</p>
+    <h2 class="section-title">Ce que disent les praticiens <em>qui l'utilisent</em></h2>
+    <div class="divider"></div>
+
+    <div class="temoignages-grid">
+      <div class="temoignage">
+        <blockquote>« Ce qui m'a convaincu, c'est la cohérence entre le cadre alimentaire et le travail psychologique. Pour la première fois, j'ai un outil qui relie les deux sans que ce soit artificiel. »</blockquote>
+        <p class="temoignage-auteur">Praticienne en psycho-nutrition · Toulouse</p>
+      </div>
+      <div class="temoignage">
+        <blockquote>« Mes patients tiennent mieux dans le temps. Le fait qu'ils aient des outils hebdomadaires entre les séances change vraiment la dynamique de suivi. »</blockquote>
+        <p class="temoignage-auteur">Diététicienne nutritionniste · Lyon</p>
+      </div>
+      <div class="temoignage">
+        <blockquote>« Je n'avais pas à recréer du contenu. Le dispositif est déjà structuré, je peux me concentrer sur l'accompagnement clinique, qui est mon cœur de métier. »</blockquote>
+        <p class="temoignage-auteur">Psychothérapeute · Paris</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contact" class="cta-final">
+  <div class="container">
+    <p class="section-label" style="color:var(--or);">Prendre rendez-vous</p>
+    <h2 class="section-title">Un échange de 30 minutes <em>pour voir si c'est fait pour vous</em></h2>
+    <p>Pas de présentation commerciale. Un rendez-vous téléphonique ou en visio pour comprendre votre pratique, vos patients, et déterminer si KétoProgress est une réelle valeur ajoutée pour vous.</p>
+    <div class="cta-actions">
+      <a href="mailto:contact@ketoprogress.fr" class="btn-primary-dark">Prendre rendez-vous</a>
+      <a href="https://ketoprogress.fr" target="_blank" class="btn-link">Voir le site patient</a>
+    </div>
+    <p style="font-size:0.8rem;color:var(--texte-leger);margin-top:2rem;">
+      Patricia Rousset · Psychanalyste · Montauban<br>
+      <a href="mailto:contact@ketoprogress.fr" style="color:var(--vert-moyen);text-decoration:none;">contact@ketoprogress.fr</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Kéto<span>Progress</span> <span style="font-size:0.7rem;font-weight:300;opacity:0.4;font-family:var(--sans);">Professionnels</span></div>
+  <ul class="footer-links">
+    <li><a href="#methode">La méthode</a></li>
+    <li><a href="#phases">Les phases</a></li>
+    <li><a href="#outils">Les outils</a></li>
+    <li><a href="#offre">L'offre</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-credit">© 2025 KétoProgress · Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
